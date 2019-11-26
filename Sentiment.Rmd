@@ -1,0 +1,20 @@
+---
+title: "Untitled"
+author: "Elisabet"
+date: "11/26/2019"
+output: html_document
+---
+
+```{r}
+getwd()
+pacman::p_load(tidytext, tidyverse)
+TG <- read_csv("C:/Users/elisa/Documents/1st semester/CC/Exam/TGEU")
+
+TG <-
+```
+
+
+```{r}
+TG %>% unnest_tokens(word,text)
+```
+

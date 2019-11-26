@@ -1,0 +1,24 @@
+---
+title: "Compare"
+author: "Elisabet"
+date: "11/19/2019"
+output: html_document
+---
+
+```{r}
+#install.packages("LSAfun")
+p_load(tidyverse, stringr, LSAfun, pastecs, tm)
+getwd()
+# working directory if needed
+#knitr::opts_knit$set(root.dir = "")
+```
+
+```{r}
+TG <- read.csv(file.choose(), header = T)
+str
+
+corpus <- iconv(TG$trailText)
+corpus <- Corpus(VectorSource(corpus))
+
+```
+

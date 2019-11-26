@@ -1,0 +1,497 @@
+---
+title: "TG"
+author: "Elisabet"
+date: "11/19/2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+pacman::p_load(GuardianR, tidyverse)
+getwd()
+
+TG1 <- get_guardian("brexit+eu",
+                   section = "uk-news",
+                   from.date = "2019-11-01",
+                   to.date = "2019-11-18",
+                   api.key = "7e4c0f32-f9cd-4cfe-8140-204447e09c0f")
+
+TG2 <- get_guardian("brexit+eu",
+                   section = "uk-news",
+                   from.date = "2019-10-01",
+                   to.date = "2019-10-31",
+                   api.key = "7e4c0f32-f9cd-4cfe-8140-204447e09c0f")
+
+TG3 <- get_guardian("brexit+eu",
+                   section = "uk-news",
+                   from.date = "2019-09-01",
+                   to.date = "2019-09-30",
+                   api.key = "7e4c0f32-f9cd-4cfe-8140-204447e09c0f")
+
+TG4 <- get_guardian("brexit+eu",
+                   section = "uk-news",
+                   from.date = "2019-08-01",
+                   to.date = "2019-08-31",
+                   api.key = "7e4c0f32-f9cd-4cfe-8140-204447e09c0f")
+
+TG5 <- get_guardian("brexit+eu",
+                   section = "uk-news",
+                   from.date = "2019-07-01",
+                   to.date = "2019-07-31",
+                   api.key = "7e4c0f32-f9cd-4cfe-8140-204447e09c0f")
+
+TG6 <- get_guardian("brexit+eu",
+                   section = "uk-news",
+                   from.date = "2019-06-01",
+                   to.date = "2019-06-30",
+                   api.key = "7e4c0f32-f9cd-4cfe-8140-204447e09c0f")
+
+TG7 <- get_guardian("brexit+eu",
+                   section = "uk-news",
+                   from.date = "2019-05-01",
+                   to.date = "2019-05-31",
+                   api.key = "7e4c0f32-f9cd-4cfe-8140-204447e09c0f")
+
+TG8 <- get_guardian("brexit+eu",
+                   section = "uk-news",
+                   from.date = "2019-04-01",
+                   to.date = "2019-04-30",
+                   api.key = "7e4c0f32-f9cd-4cfe-8140-204447e09c0f")
+
+TG9 <- get_guardian("brexit+eu",
+                   section = "uk-news",
+                   from.date = "2019-03-01",
+                   to.date = "2019-03-31",
+                   api.key = "7e4c0f32-f9cd-4cfe-8140-204447e09c0f")
+
+
+TG10 <- get_guardian("brexit+eu",
+                   section = "uk-news",
+                   from.date = "2019-02-01",
+                   to.date = "2019-02-28",
+                   api.key = "7e4c0f32-f9cd-4cfe-8140-204447e09c0f")
+
+TG11 <- get_guardian("brexit+eu",
+                   section = "uk-news",
+                   from.date = "2019-01-01",
+                   to.date = "2019-01-31",
+                   api.key = "7e4c0f32-f9cd-4cfe-8140-204447e09c0f")
+
+
+TG2019 <- Reduce(function(...) merge(..., all=TRUE), list(TG1, TG2, TG3, TG4, TG5, TG6, TG7, TG8, TG9, TG10, TG11))
+```
+
+```{r}
+TG1.1 <- get_guardian("brexit+eu",
+                   section = "uk-news",
+                   from.date = "2018-12-01",
+                   to.date = "2018-12-31",
+                   api.key = "7e4c0f32-f9cd-4cfe-8140-204447e09c0f")
+
+TG2.1 <- get_guardian("brexit+eu",
+                   section = "uk-news",
+                   from.date = "2018-11-01",
+                   to.date = "2018-11-30",
+                   api.key = "7e4c0f32-f9cd-4cfe-8140-204447e09c0f")
+
+TG3.1 <- get_guardian("brexit+eu",
+                   section = "uk-news",
+                   from.date = "2018-10-01",
+                   to.date = "2018-10-31",
+                   api.key = "7e4c0f32-f9cd-4cfe-8140-204447e09c0f")
+
+TG4.1 <- get_guardian("brexit+eu",
+                   section = "uk-news",
+                   from.date = "2018-09-01",
+                   to.date = "2018-09-30",
+                   api.key = "7e4c0f32-f9cd-4cfe-8140-204447e09c0f")
+
+TG5.1 <- get_guardian("brexit+eu",
+                   section = "uk-news",
+                   from.date = "2018-08-01",
+                   to.date = "2018-08-31",
+                   api.key = "7e4c0f32-f9cd-4cfe-8140-204447e09c0f")
+
+TG6.1 <- get_guardian("brexit+eu",
+                   section = "uk-news",
+                   from.date = "2018-07-01",
+                   to.date = "2018-07-31",
+                   api.key = "7e4c0f32-f9cd-4cfe-8140-204447e09c0f")
+
+TG7.1 <- get_guardian("brexit+eu",
+                   section = "uk-news",
+                   from.date = "2018-06-01",
+                   to.date = "2018-06-30",
+                   api.key = "7e4c0f32-f9cd-4cfe-8140-204447e09c0f")
+
+TG8.1 <- get_guardian("brexit+eu",
+                   section = "uk-news",
+                   from.date = "2018-05-01",
+                   to.date = "2018-05-31",
+                   api.key = "7e4c0f32-f9cd-4cfe-8140-204447e09c0f")
+
+TG901 <- get_guardian("brexit+eu",
+                   section = "uk-news",
+                   from.date = "2018-04-01",
+                   to.date = "2018-04-30",
+                   api.key = "7e4c0f32-f9cd-4cfe-8140-204447e09c0f")
+
+TG101 <- get_guardian("brexit+eu",
+                   section = "uk-news",
+                   from.date = "2018-03-01",
+                   to.date = "2018-03-31",
+                   api.key = "7e4c0f32-f9cd-4cfe-8140-204447e09c0f")
+
+
+TG11.1 <- get_guardian("brexit+eu",
+                   section = "uk-news",
+                   from.date = "2018-02-01",
+                   to.date = "2018-02-28",
+                   api.key = "7e4c0f32-f9cd-4cfe-8140-204447e09c0f")
+
+TG12.1 <- get_guardian("brexit+eu",
+                   section = "uk-news",
+                   from.date = "2018-01-01",
+                   to.date = "2018-01-31",
+                   api.key = "7e4c0f32-f9cd-4cfe-8140-204447e09c0f")
+
+TG2018 <- Reduce(function(...) merge(..., all=TRUE), list(TG1.1, TG2.1, TG3.1, TG4.1, TG5.1, TG6.1, TG7.1, TG8.1, TG901, TG101, TG11.1, TG12.1))
+
+```
+
+
+```{r}
+TG1.2 <- get_guardian("brexit+eu",
+                   section = "uk-news",
+                   from.date = "2017-12-01",
+                   to.date = "2017-12-31",
+                   api.key = "7e4c0f32-f9cd-4cfe-8140-204447e09c0f")
+
+TG2.2 <- get_guardian("brexit+eu",
+                   section = "uk-news",
+                   from.date = "2017-11-01",
+                   to.date = "2017-11-30",
+                   api.key = "7e4c0f32-f9cd-4cfe-8140-204447e09c0f")
+
+TG3.2 <- get_guardian("brexit+eu",
+                   section = "uk-news",
+                   from.date = "2017-10-01",
+                   to.date = "2017-10-31",
+                   api.key = "7e4c0f32-f9cd-4cfe-8140-204447e09c0f")
+
+TG4.2 <- get_guardian("brexit+eu",
+                   section = "uk-news",
+                   from.date = "2017-09-01",
+                   to.date = "2017-09-30",
+                   api.key = "7e4c0f32-f9cd-4cfe-8140-204447e09c0f")
+
+TG5.2 <- get_guardian("brexit+eu",
+                   section = "uk-news",
+                   from.date = "2017-08-01",
+                   to.date = "2017-08-31",
+                   api.key = "7e4c0f32-f9cd-4cfe-8140-204447e09c0f")
+
+TG6.2 <- get_guardian("brexit+eu",
+                   section = "uk-news",
+                   from.date = "2017-07-01",
+                   to.date = "2017-07-31",
+                   api.key = "7e4c0f32-f9cd-4cfe-8140-204447e09c0f")
+
+TG7.2 <- get_guardian("brexit+eu",
+                   section = "uk-news",
+                   from.date = "2017-06-01",
+                   to.date = "2017-06-30",
+                   api.key = "7e4c0f32-f9cd-4cfe-8140-204447e09c0f")
+
+TG8.2 <- get_guardian("brexit+eu",
+                   section = "uk-news",
+                   from.date = "2017-05-01",
+                   to.date = "2017-05-31",
+                   api.key = "7e4c0f32-f9cd-4cfe-8140-204447e09c0f")
+
+TG9.2 <- get_guardian("brexit+eu",
+                   section = "uk-news",
+                   from.date = "2017-04-01",
+                   to.date = "2017-04-30",
+                   api.key = "7e4c0f32-f9cd-4cfe-8140-204447e09c0f")
+
+TG102 <- get_guardian("brexit+eu",
+                   section = "uk-news",
+                   from.date = "2017-03-01",
+                   to.date = "2017-03-31",
+                   api.key = "7e4c0f32-f9cd-4cfe-8140-204447e09c0f")
+
+
+TG11.2 <- get_guardian("brexit+eu",
+                   section = "uk-news",
+                   from.date = "2017-02-01",
+                   to.date = "2017-02-28",
+                   api.key = "7e4c0f32-f9cd-4cfe-8140-204447e09c0f")
+
+TG12.2 <- get_guardian("brexit+eu",
+                   section = "uk-news",
+                   from.date = "2017-01-01",
+                   to.date = "2017-01-31",
+                   api.key = "7e4c0f32-f9cd-4cfe-8140-204447e09c0f")
+
+TG2017 <- Reduce(function(...) merge(..., all=TRUE), list(TG1.2, TG2.2, TG3.2, TG4.2, TG5.2, TG6.2, TG7.2, TG8.2, TG9.2, TG102, TG11.2, TG12.2))
+```
+
+
+
+
+
+```{r}
+TG1.3 <- get_guardian("brexit+eu",
+                   section = "uk-news",
+                   from.date = "2016-12-01",
+                   to.date = "2016-12-31",
+                   api.key = "7e4c0f32-f9cd-4cfe-8140-204447e09c0f")
+
+TG2.3 <- get_guardian("brexit+eu",
+                   section = "uk-news",
+                   from.date = "2016-11-01",
+                   to.date = "2016-11-30",
+                   api.key = "7e4c0f32-f9cd-4cfe-8140-204447e09c0f")
+
+TG3.3 <- get_guardian("brexit+eu",
+                   section = "uk-news",
+                   from.date = "2016-10-01",
+                   to.date = "2016-10-31",
+                   api.key = "7e4c0f32-f9cd-4cfe-8140-204447e09c0f")
+
+TG4.3 <- get_guardian("brexit+eu",
+                   section = "uk-news",
+                   from.date = "2016-09-01",
+                   to.date = "2016-09-30",
+                   api.key = "7e4c0f32-f9cd-4cfe-8140-204447e09c0f")
+
+TG5.3 <- get_guardian("brexit+eu",
+                   section = "uk-news",
+                   from.date = "2016-08-01",
+                   to.date = "2016-08-31",
+                   api.key = "7e4c0f32-f9cd-4cfe-8140-204447e09c0f")
+
+TG6.3 <- get_guardian("brexit+eu",
+                   section = "uk-news",
+                   from.date = "2016-07-01",
+                   to.date = "2016-07-31",
+                   api.key = "7e4c0f32-f9cd-4cfe-8140-204447e09c0f")
+
+TG7.3 <- get_guardian("brexit+eu",
+                   section = "uk-news",
+                   from.date = "2016-06-01",
+                   to.date = "2016-06-30",
+                   api.key = "7e4c0f32-f9cd-4cfe-8140-204447e09c0f")
+
+TG8.3 <- get_guardian("brexit+eu",
+                   section = "uk-news",
+                   from.date = "2016-05-01",
+                   to.date = "2016-05-31",
+                   api.key = "7e4c0f32-f9cd-4cfe-8140-204447e09c0f")
+
+TG9.3 <- get_guardian("brexit+eu",
+                   section = "uk-news",
+                   from.date = "2016-04-01",
+                   to.date = "2016-04-30",
+                   api.key = "7e4c0f32-f9cd-4cfe-8140-204447e09c0f")
+
+TG103 <- get_guardian("brexit+eu",
+                   section = "uk-news",
+                   from.date = "2016-03-01",
+                   to.date = "2016-03-31",
+                   api.key = "7e4c0f32-f9cd-4cfe-8140-204447e09c0f")
+
+
+TG11.3 <- get_guardian("brexit+eu",
+                   section = "uk-news",
+                   from.date = "2016-02-01",
+                   to.date = "2016-02-28",
+                   api.key = "7e4c0f32-f9cd-4cfe-8140-204447e09c0f")
+
+TG12.3 <- get_guardian("brexit+eu",
+                   section = "uk-news",
+                   from.date = "2016-01-01",
+                   to.date = "2016-01-31",
+                   api.key = "7e4c0f32-f9cd-4cfe-8140-204447e09c0f")
+
+TG2016 <- Reduce(function(...) merge(..., all=TRUE), list(TG1.3, TG2.3, TG3.3, TG4.3, TG5.3, TG6.3, TG7.3, TG8.3, TG9.3, TG103, TG11.3, TG12.3))
+```
+
+
+```{r}
+TG1.4 <- get_guardian("brexit+eu",
+                   section = "uk-news",
+                   from.date = "2015-12-01",
+                   to.date = "2015-12-31",
+                   api.key = "7e4c0f32-f9cd-4cfe-8140-204447e09c0f")
+
+TG2.4 <- get_guardian("brexit+eu",
+                   section = "uk-news",
+                   from.date = "2015-11-01",
+                   to.date = "2015-11-30",
+                   api.key = "7e4c0f32-f9cd-4cfe-8140-204447e09c0f")
+
+TG3.4 <- get_guardian("brexit+eu",
+                   section = "uk-news",
+                   from.date = "2015-10-01",
+                   to.date = "2015-10-31",
+                   api.key = "7e4c0f32-f9cd-4cfe-8140-204447e09c0f")
+
+TG4.4 <- get_guardian("brexit+eu",
+                   section = "uk-news",
+                   from.date = "2015-09-01",
+                   to.date = "2015-09-30",
+                   api.key = "7e4c0f32-f9cd-4cfe-8140-204447e09c0f")
+
+TG5.4 <- get_guardian("brexit+eu",
+                   section = "uk-news",
+                   from.date = "2015-08-01",
+                   to.date = "2015-08-31",
+                   api.key = "7e4c0f32-f9cd-4cfe-8140-204447e09c0f")
+
+TG6.4 <- get_guardian("brexit+eu",
+                   section = "uk-news",
+                   from.date = "2015-07-01",
+                   to.date = "2015-07-31",
+                   api.key = "7e4c0f32-f9cd-4cfe-8140-204447e09c0f")
+
+TG7.4 <- get_guardian("brexit+eu",
+                   section = "uk-news",
+                   from.date = "2015-06-01",
+                   to.date = "2015-06-30",
+                   api.key = "7e4c0f32-f9cd-4cfe-8140-204447e09c0f")
+
+TG8.4 <- get_guardian("brexit+eu",
+                   section = "uk-news",
+                   from.date = "2015-05-01",
+                   to.date = "2015-05-31",
+                   api.key = "7e4c0f32-f9cd-4cfe-8140-204447e09c0f")
+
+TG9.4 <- get_guardian("brexit+eu",
+                   section = "uk-news",
+                   from.date = "2015-04-01",
+                   to.date = "2015-04-30",
+                   api.key = "7e4c0f32-f9cd-4cfe-8140-204447e09c0f")
+
+TG104 <- get_guardian("brexit+eu",
+                   section = "uk-news",
+                   from.date = "2015-03-01",
+                   to.date = "2015-03-31",
+                   api.key = "7e4c0f32-f9cd-4cfe-8140-204447e09c0f")
+
+
+TG11.4 <- get_guardian("brexit+eu",
+                   section = "uk-news",
+                   from.date = "2015-02-01",
+                   to.date = "2015-02-28",
+                   api.key = "7e4c0f32-f9cd-4cfe-8140-204447e09c0f")
+
+TG12.4 <- get_guardian("brexit+eu",
+                   section = "uk-news",
+                   from.date = "2015-01-01",
+                   to.date = "2015-01-31",
+                   api.key = "7e4c0f32-f9cd-4cfe-8140-204447e09c0f")
+
+TG2015 <- Reduce(function(...) merge(..., all=TRUE), list(TG1.4, TG2.4, TG3.4, TG4.4, TG5.4, TG6.4, TG7.4, TG8.4, TG9.4, TG104, TG11.4, TG12.4))
+```
+
+
+
+```{r}
+TG1.5 <- get_guardian("brexit+eu",
+                   section = "uk-news",
+                   from.date = "2014-12-01",
+                   to.date = "2014-12-31",
+                   api.key = "7e4c0f32-f9cd-4cfe-8140-204447e09c0f")
+
+TG2.5 <- get_guardian("brexit+eu",
+                   section = "uk-news",
+                   from.date = "2014-11-01",
+                   to.date = "2014-11-30",
+                   api.key = "7e4c0f32-f9cd-4cfe-8140-204447e09c0f")
+
+TG3.5 <- get_guardian("brexit+eu",
+                   section = "uk-news",
+                   from.date = "2014-10-01",
+                   to.date = "2014-10-31",
+                   api.key = "7e4c0f32-f9cd-4cfe-8140-204447e09c0f")
+
+TG4.5 <- get_guardian("brexit+eu",
+                   section = "uk-news",
+                   from.date = "2014-09-01",
+                   to.date = "2014-09-30",
+                   api.key = "7e4c0f32-f9cd-4cfe-8140-204447e09c0f")
+
+TG5.5 <- get_guardian("brexit+eu",
+                   section = "uk-news",
+                   from.date = "2014-08-01",
+                   to.date = "2014-08-31",
+                   api.key = "7e4c0f32-f9cd-4cfe-8140-204447e09c0f")
+
+TG6.5 <- get_guardian("brexit+boris+theresa+mp",
+                   section = "uk-news",
+                   from.date = "2014-07-01",
+                   to.date = "2014-07-31",
+                   api.key = "7e4c0f32-f9cd-4cfe-8140-204447e09c0f")
+
+TG7.5 <- get_guardian("brexit+eu",
+                   section = "uk-news",
+                   from.date = "2014-06-01",
+                   to.date = "2014-06-30",
+                   api.key = "7e4c0f32-f9cd-4cfe-8140-204447e09c0f")
+
+TG8.5 <- get_guardian("brexit+eu",
+                   section = "uk-news",
+                   from.date = "2014-05-01",
+                   to.date = "2014-05-31",
+                   api.key = "7e4c0f32-f9cd-4cfe-8140-204447e09c0f")
+
+TG9.5 <- get_guardian("brexit+eu",
+                   section = "uk-news",
+                   from.date = "2014-04-01",
+                   to.date = "2014-04-30",
+                   api.key = "7e4c0f32-f9cd-4cfe-8140-204447e09c0f")
+
+TG105 <- get_guardian("brexit+eu",
+                   section = "uk-news",
+                   from.date = "2014-03-01",
+                   to.date = "2014-03-31",
+                   api.key = "7e4c0f32-f9cd-4cfe-8140-204447e09c0f")
+
+
+TG11.5 <- get_guardian("brexit+eu",
+                   section = "uk-news",
+                   from.date = "2014-02-01",
+                   to.date = "2014-02-28",
+                   api.key = "7e4c0f32-f9cd-4cfe-8140-204447e09c0f")
+
+TG12.5 <- get_guardian("brexit+eu",
+                   section = "uk-news",
+                   from.date = "2014-01-01",
+                   to.date = "2014-01-31",
+                   api.key = "7e4c0f32-f9cd-4cfe-8140-204447e09c0f")
+
+TG2014 <- Reduce(function(...) merge(..., all=TRUE), list(TG1.5, TG2.5, TG3.5, TG4.5, TG5.5, TG6.5, TG7.5, TG8.5, TG9.5, TG105, TG11.5, TG12.5))
+
+
+```
+
+
+
+```{r}
+write.csv(TG2014, 'TG2014eu')
+write.csv(TG2015, 'TG2015eu')
+write.csv(TG2016, 'TG2016eu')
+write.csv(TG2017, 'TG2017eu')
+write.csv(TG2018, 'TG2018eu')
+write.csv(TG2019, 'TG2019eu')
+
+TG2012 <- read.csv("TG2012")
+TG2013 <- read.csv("TG2013")
+
+TGEU <- Reduce(function(...) merge(..., all=TRUE), list(TG2012, TG2013, TG2014, TG2015, TG2016, TG2017, TG2018, TG2019))
+
+write.csv(TGEU, 'TGEU')
+```
+
+
